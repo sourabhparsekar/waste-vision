@@ -1,0 +1,12 @@
+# Groq API client (official Python SDK)
+groq>=0.10.0
+
+# Environment variable loader
+python-dotenv>=1.0.1
+
+# JSON and OS are built-in — no need to add them
+
+# Optional utilities (recommended for local dev)
+requests>=2.32.0  # used internally by Groq SDK
+urllib3>=2.2.2    # SSL support
+certifi>=2024.7.4 # certificate trust store
