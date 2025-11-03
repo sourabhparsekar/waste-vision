@@ -2,12 +2,8 @@
 from ibm_watsonx_orchestrate.agent_builder.tools import tool
 from groq import Groq
 import json
-import os 
-from dotenv import load_dotenv
 from ibm_watsonx_orchestrate.run import connections
 from ibm_watsonx_orchestrate.run.connections import ConnectionType
-
-load_dotenv()
 
 @tool(expected_credentials=[{'app_id': 'groq_search', 'type': ConnectionType.BEARER_TOKEN}])
 def groq_compound_search(query: str) -> dict:
@@ -23,7 +19,7 @@ def groq_compound_search(query: str) -> dict:
             "sources": [<list of source URLs>]
         }
     """
-    api_key = os.getenv("GROQ_API_KEY")
+
     if connections.get_connection_type("groq_search") == ConnectionType.BEARER_TOKEN:
         conn = connections.bearer_token('groq_search')
         api_key = conn.token
